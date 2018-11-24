@@ -1,10 +1,13 @@
+var handler = require('./handler.js')
 var express = require('express');
 var app = express();
 
-app.get('/',(req,res)=>{
-
-    res.send('Hello World!');
-
+app.get('/', function(req, res){
+    handler.baseHandler(req,res)
 });
 
-app.listen('3000',()=>{console.log('Server started at 3000');})
+app.get('/mul', function(req,res){
+    handler.mulHander(req,res)
+});
+
+app.listen(3000);
